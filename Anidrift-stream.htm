@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIDRIFT</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #2c2c54;
+            color: #ffffff;
+
+
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #222240;
+            
+        }
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        header .menu a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        header .logo a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        header .button a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        header .profile a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        header .button {
+            display: flex;
+            align-items: center;
+            background-color: #3a3a6a;
+            border-radius: 25px;
+            padding: 5px 10px;
+        }
+        header .button input {
+            border: none;
+            background: none;
+            color: #ffffff;
+            padding: 5px;
+            outline: none;
+        }
+        header .button i {
+            margin-right: 10px;
+        }
+        .container-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            flex-direction: column;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            background-color: #222240;
+            max-width: 800px;
+            width: 100%;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background-color: #000;
+            border-radius: 15px;
+        }
+        .video-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .video-wrapper .play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 50px;
+            color: #0000005e;
+            cursor: pointer;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .control-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 20px;
+            border: 1px solid #333;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .control-item i {
+            margin-right: 10px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .stats-item {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .stats-item i {
+            margin-right: 5px;
+        }
+        .share {
+            margin-top: 20px;
+        }
+        .share a {
+            color: #fff;
+            text-decoration: none;
+        }
+        .share a:hover {
+            text-decoration: underline;
+            color: #fff;
+        }
+        .comment-box {
+            display: none;
+            margin-top: 20px;
+        }
+        .comment-box textarea {
+            width: 100%;
+            height: 100px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            padding: 10px;
+            background-color: #1a1a2e;
+            color: #ffffff;
+        }
+        .comment-box button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            border-radius: 10px;
+            border: none;
+            background-color: #333;
+            color: #ffffff;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #1e1e37;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+        footer .footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        footer .bottom-bar {
+            border-top: 1px solid #333;
+            padding-top: 10px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        footer .bottom-bar .left {
+            display: flex;
+            align-items: center;
+        }
+        footer .bottom-bar .left img {
+            margin-right: 10px;
+        }
+        footer .bottom-bar .right {
+            display: flex;
+            align-items: center;
+        }
+        footer .bottom-bar .right select {
+            background-color: #1e1e37;
+            color: #fff;
+            border: 1px solid #333;
+            padding: 5px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <a href="#">
+                <i class="fas fa-bars"></i>
+            </a>
+        </div>
+        <div class="logo">
+            <a href="Anidrift.htm">ANIDRIFT</a>
+        </div>
+        <div class="button">
+            <a href="Anidrift-search.htm">
+                <i class="fas fa-search"></i>
+                <input placeholder="Search" type="text"/>
+            </a>
+        </div>
+        <div class="profile">
+            <a href="Anidrift-profile.htm">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+    </header>
+    <br>
+    <div class="container-box">
+        <div class="container">
+            <div class="video-wrapper">
+                <img alt="Anime character with long black hair and a white outfit" height="450" src="https://storage.googleapis.com/a1aa/image/v89SPZveLqXsFKTfS0tTfFrODsHfafHtMcGC2XJOrRo8x4YfE.jpg" width="800"/>
+                <div class="play-button">
+                    <i class="fas fa-play-circle"></i>
+                </div>
+            </div>
+            <div class="controls">
+                <div class="control-item" id="volume-control">
+                    <i class="fas fa-volume-up"></i>
+                    <button onclick="changeVolume(-10)">-</button>
+                    <span id="volume-level">100%</span>
+                    <button onclick="changeVolume(10)">+</button>
+                </div>
+                <div class="control-item" id="language-control">
+                    <i class="fas fa-closed-captioning"></i>
+                    <select id="language-select" onchange="changeLanguage()">
+                        <option value="English">English</option>
+                        <option value="Spanish">Spanish</option>
+                        <option value="French">French</option>
+                        <option value="German">German</option>
+                    </select>
+                </div>
+                <div class="control-item" id="quality-control">
+                    <i class="fas fa-cog"></i>
+                    <select id="quality-select" onchange="changeQuality()">
+                        <option value="1080p">1080p</option>
+                        <option value="720p">720p</option>
+                        <option value="480p">480p</option>
+                        <option value="360p">360p</option>
+                    </select>
+                </div>
+            </div>
+            <div class="stats">
+                <div class="stats-item" id="like-button" onclick="toggleLike()">
+                    <i class="fas fa-thumbs-up"></i>
+                    <span id="like-count">14K</span>
+                </div>
+                <div class="stats-item" id="comment-button" onclick="toggleCommentBox()">
+                    <i class="fas fa-comment"></i>
+                    4.2K
+                </div>
+                <div class="stats-item">
+                    <i class="fas fa-heart"></i>
+                    120K
+                </div>
+            </div>
+            <div class="share">
+                <a href="#">Share</a>
+            </div>
+            <div class="comment-box" id="comment-box">
+                <textarea placeholder="Write a comment..."></textarea>
+                <button onclick="submitComment()">Submit</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <footer>
+        <div class="footer">
+            <a href="#">Terms of Use</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Cookie Consent Tool</a>
+        </div>
+        <div class="bottom-bar">
+            <div class="left">
+                <span>ANIDRIFT PICTURES || © ANIDRIFT, LLC |</span>
+            </div>
+            <div class="right">
+                <span>| ENGLISH (US)</span>
+                <select>
+                    <option>ENGLISH (US)</option>
+                    <option>JAPANESE</option>
+                    <option>KOREAN</option>
+                    <option>SIMPLIFIED CHINESE</option>
+                    <option>TRADITIONAL CHINESE</option>
+                    <!-- Add other languages as needed -->
+                </select>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let volume = 100;
+        let liked = false;
+        let likeCount = 14000;
+
+        function changeVolume(amount) {
+            volume = Math.min(100, Math.max(0, volume + amount));
+            document.getElementById('volume-level').innerText = volume + '%';
+        }
+
+        function changeLanguage() {
+            const language = document.getElementById('language-select').value;
+            console.log('Language changed to:', language);
+        }
+
+        function changeQuality() {
+            const quality = document.getElementById('quality-select').value;
+            console.log('Quality changed to:', quality);
+        }
+
+        function toggleLike() {
+            liked = !liked;
+            likeCount += liked ? 1 : -1;
+            document.getElementById('like-count').innerText = likeCount.toLocaleString();
+            document.getElementById('like-button').classList.toggle('liked', liked);
+        }
+
+        function toggleCommentBox() {
+            const commentBox = document.getElementById('comment-box');
+            commentBox.style.display = commentBox.style.display === 'none' || commentBox.style.display === '' ? 'block' : 'none';
+        }
+
+        function submitComment() {
+            const commentBox = document.getElementById('comment-box');
+            const textarea = commentBox.querySelector('textarea');
+            const comment = textarea.value;
+            if (comment) {
+                console.log('Comment submitted:', comment);
+                textarea.value = '';
+                commentBox.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>

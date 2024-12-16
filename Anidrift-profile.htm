@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANIDRIFT</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: #2c2c54;
+            color: #ffffff;
+            /*  display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;   */
+        }
+        .container-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            flex-direction: column;
+        }
+        .header {
+            font-size: 32px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            flex-direction: column;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 20px 40px;
+            background-color: #222240;
+            
+        }
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        header .menu a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        header .logo a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        header .button a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        header .profile a {
+            text-decoration: none;
+            color: #ffffff;
+        }
+        header .button {
+            display: flex;
+            align-items: center;
+            background-color: #3a3a6a;
+            border-radius: 25px;
+            padding: 5px 10px;
+        }
+        header .button input {
+            border: none;
+            background: none;
+            color: #ffffff;
+            padding: 5px;
+            outline: none;
+        }
+        header .button i {
+            margin-right: 10px;
+        }
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background-color: #222240;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .profile-image {
+            position: relative;
+            display: inline-block;
+            margin-top: -50px;
+        }
+        .profile-image img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 2px solid white;
+        }
+        .profile-image .edit-icon {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: #2222407e;
+            border-radius: 50%;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .background-image {
+            position: relative;
+        }
+        .background-image img {
+            width: 100%;
+            border-radius: 10px 10px 0 0;
+        }
+        .background-image .edit-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #22224081;
+            border-radius: 50%;
+            padding: 5px;
+            cursor: pointer;
+        }
+        .input-container {
+            margin: 20px 0;
+            text-align: left;
+        }
+        .input-container label {
+            color: #ffffff;
+            font-size: 0.9em;
+        }
+        .input-container input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-bottom: 2px solid #6a00ff;
+            background-color: #222240;
+            color: white;
+            font-size: 1em;
+        }
+        .input-container p {
+            font-size: 0.8em;
+            color: #888;
+        }
+        .username-container {
+            margin: 20px 0;
+            text-align: left;
+        }
+        .username-container label {
+            font-size: 1.1em;
+        }
+        .username-container .randomize {
+            float: right;
+            color: #cacacabc;
+            cursor: pointer;
+        }
+        .username-container input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: none;
+            border-bottom: 2px solid #6a00ff;
+            background-color: #222240;
+            color: white;
+            font-size: 1em;
+        }
+        .username-container p {
+            font-size: 0.8em;
+            color: #888;
+        }
+        .buttons-box .buttons {
+            align-content: center;
+            margin-left: 26%;
+        }
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            max-width: 600px;
+            margin-top: 20px;
+            align-content: center;
+        }
+        .buttons button {
+            width: 40%;
+            padding: 15px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .buttons .save {
+            background-color: #3a3a6a;
+            color: white;
+            border-radius: 20px;
+        }
+        .buttons .cancel {
+            background-color: #6a00ff;
+            color: black;
+            border-radius: 20px;
+        }
+        #file-input-background, #file-input-profile {
+            display: none;
+        }
+        footer {
+            background-color: #1e1e37;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: auto;
+        }
+        footer .footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        footer .bottom-bar {
+            border-top: 1px solid #333;
+            padding-top: 10px;
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        footer .bottom-bar .left {
+            display: flex;
+            align-items: center;
+        }
+        footer .bottom-bar .left img {
+            margin-right: 10px;
+        }
+        footer .bottom-bar .right {
+            display: flex;
+            align-items: center;
+        }
+        footer .bottom-bar .right select {
+            background-color: #1e1e37;
+            color: #fff;
+            border: 1px solid #333;
+            padding: 5px;
+            margin-left: 10px;
+        }
+    </style>
+    <script>
+        function generateRndmName() {
+            const adjectives = ["Cool", "Super", "Awesome", "Epic", "Mighty","Swift", "Fierce", "Gentle", "Cunning","Cool", "Crazy", "Happy", "Silly", "Brave","Charming", "Witty", "Bold", "Clever", "Daring"];
+            const nouns = ["Ninja", "Samurai", "Warrior", "Mage", "Knight","Wolf", "Falcon", "Panther", "Bear", "Fox","Tiger", "Lion", "Eagle", "Shark", "Dragon","Phoenix", "Griffin", "Viper", "Jaguar", "Rhino"];
+            const randomAdjective = adjectives[Math.floor(Math.random() * adjectives.length)];
+            const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
+            return randomAdjective + randomNoun + Math.floor(Math.random() * 1000);
+        }
+
+        function setRndmName() {
+            const usernameInput = document.getElementById("username");
+            usernameInput.value = generateRndmName();
+        }
+
+        function chgBgImg() {
+            const fileInput = document.getElementById("file-input-background");
+            fileInput.click();
+        }
+
+        function bgFileSelect(event) {
+            const backgroundImage = document.getElementById("background-image");
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                backgroundImage.src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+        function chgPfp() {
+            const fileInput = document.getElementById("file-input-profile");
+            fileInput.click();
+        }
+
+        function pfpFileSelect(event) {
+            const profileImage = document.getElementById("profile-image");
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                profileImage.src = e.target.result;
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+        function savePfp() {
+            const username = document.getElementById("username").value;
+            alert("Profile saved with username: " + username);
+        }
+
+        function cancelEdit() {
+            if (confirm("Are you sure you want to cancel? All changes will be lost.")) {
+                window.location.reload();
+            }
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="menu">
+            <a href="#">
+                <i class="fas fa-bars"></i>
+            </a>
+        </div>
+        <div class="logo">
+            <a href="Anidrift.htm">ANIDRIFT</a>
+        </div>
+        <div class="button">
+            <a href="Anidrift-search.htm">
+                <i class="fas fa-search"></i>
+                <input placeholder="Search" type="text"/>
+            </a>
+        </div>
+        <div class="profile">
+            <a href="Anidrift-profile.htm">
+                <i class="fas fa-user"></i>
+            </a>
+        </div>
+    </header>
+    <br>
+    <div class="header">
+        <i class="fas fa-user"> Edit Profile</i>
+    </div>
+    <br>
+    <div class="container-box">
+        <div class="container">
+            <div class="background-image">
+                <img alt="Background image" height="200" id="background-image" src="https://storage.googleapis.com/a1aa/image/DuRZAeGShlRoekKPeanOBJhehywcrs60djbsUsjlSklRbhsPB.jpg" width="600"/>
+                <div class="edit-icon" onclick="chgBgImg()">
+                    <i class="fas fa-pencil-alt"></i>
+                </div>
+                <input id="file-input-background" onchange="bgFileSelect(event)" type="file"/>
+            </div>
+            <div class="profile-image" style="margin-top: -50px;">
+                <img alt="Profile image" height="100" id="profile-image" src="https://storage.googleapis.com/a1aa/image/e9LP1OPbRRwNLKE33Yb1kVa21VhhMXnCEf5t2nYBzzx1WI7TA.jpg" width="100"/>
+                <div class="edit-icon" onclick="chgPfp()">
+                    <i class="fas fa-pencil-alt"></i>
+                </div>
+                <input id="file-input-profile" onchange="pfpFileSelect(event)" type="file"/>
+            </div>
+            <div class="input-container">
+                <label>Name</label>
+                <input type="text"/>
+                <p>Must be between 2 and 50 characters.<br>Can be changed at anytime.</p>
+            </div>
+            <div class="username-container">
+                <label>Username</label>
+                <span class="randomize" onclick="setRndmName()">RANDOMIZE</span>
+                <input id="username" type="text"/>
+            </div>
+        </div>
+    </div>
+    <div class="buttons-box">
+        <div class="buttons">
+            <button class="save" onclick="savePfp()">SAVE</button>
+            <button class="cancel" onclick="cancelEdit()">CANCEL</button>
+        </div>
+    </div>
+    <br>
+    <footer>
+        <div class="footer">
+            <a href="#">Terms of Use</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Cookie Consent Tool</a>
+        </div>
+        <div class="bottom-bar">
+            <div class="left">
+                <span>ANIDRIFT PICTURES || © ANIDRIFT, LLC |</span>
+            </div>
+            <div class="right">
+                <span>| ENGLISH (US)</span>
+                <select>
+                    <option>ENGLISH (US)</option>
+                    <option>JAPANESE</option>
+                    <option>KOREAN</option>
+                    <option>SIMPLIFIED CHINESE</option>
+                    <option>TRADITIONAL CHINESE</option>
+                    <!-- Add other languages as needed -->
+                </select>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
